@@ -1,0 +1,21 @@
+*.iml
+/shelf/
+/out/
+/workspace.xml
+/tasks.xml
+/gradle.xml
+/assetWizardSettings.xml
+/dictionaries
+/libraries
+/caches
+/modules.xml
+/vcs.xml
+/jsLibraryMappings.xml
+
+# Sensitive or high-churn files:
+/dataSources.ids
+/dataSources.xml
+/dataSources.local.xml
+/sqlDataSources.xml
+/dynamic.xml
+/uiDesigner.xml
