@@ -9,11 +9,18 @@ internal object Versions {
         const val JUNIT = "4.13.2"
     }
 
+    object Kotlin {
+        const val SERIALIZATION = "1.3.2"
+        const val COROUTINES = "1.5.2"
+    }
+
     object Androidx {
         object Android {
             const val CORE = "1.7.0"
             const val APPCOMPAT = "1.4.1"
             const val SLIDING_PANEL_LAYOUT = "1.2.0"
+            const val LIFE_CYCLE = "2.4.0"
+            const val FRAGMENT = "1.4.1"
         }
 
         object AndroidTest {
@@ -24,8 +31,14 @@ internal object Versions {
     }
 
     object Google {
-        object Android {
-            const val MATERIAL = "1.5.0"
-        }
+        const val MATERIAL = "1.5.0"
+    }
+
+    object Ktor {
+        const val KTOR_CLIENT = "1.5.0"
+    }
+
+    object Kodein {
+        const val KODEIN = "6.5.0"
     }
 }

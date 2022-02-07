@@ -3,6 +3,7 @@
     package="com.ruiderson.deviget_android_test">
 
     <application
+        android:name=".application.App"
         android:allowBackup="true"
         android:fullBackupOnly="true"
         android:icon="@mipmap/ic_launcher"
