@@ -6,4 +6,8 @@ pluginManagement {
 }
 
 rootProject.name = "Deviget-Android-Test"
-include(":app")
+include(
+    ":app",
+    ":core:base",
+    ":core:network"
+)
