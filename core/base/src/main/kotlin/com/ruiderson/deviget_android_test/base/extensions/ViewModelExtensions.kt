@@ -1,4 +1,4 @@
-package com.ruiderson.deviget_android_test.extensions
+package com.ruiderson.deviget_android_test.base.extensions
 
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
@@ -15,6 +15,7 @@ import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
 import org.kodein.di.generic.on
 
+@Suppress("UNCHECKED_CAST")
 class ViewModelFactory(private val injector: DKodein) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return injector.instanceOrNull<ViewModel>(tag = modelClass.simpleName) as T?

@@ -9,6 +9,10 @@ internal object Versions {
         const val JUNIT = "4.13.2"
     }
 
+    object Mockk {
+        const val MOCKK = "1.10.0"
+    }
+
     object Kotlin {
         const val SERIALIZATION = "1.3.2"
         const val COROUTINES = "1.5.2"
@@ -19,8 +23,11 @@ internal object Versions {
             const val CORE = "1.7.0"
             const val APPCOMPAT = "1.4.1"
             const val SLIDING_PANEL_LAYOUT = "1.2.0"
+            const val SWIPE_REFRESH_LAYOUT = "1.1.0"
+            const val PAGING = "3.1.0"
             const val LIFE_CYCLE = "2.4.0"
             const val FRAGMENT = "1.4.1"
+            const val ROOM = "2.4.1"
         }
 
         object AndroidTest {

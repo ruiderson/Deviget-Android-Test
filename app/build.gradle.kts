@@ -25,7 +25,6 @@ dependencies {
     implementation(Dependencies.Androidx.Android.SLIDING_PANEL_LAYOUT)
     implementation(Dependencies.Kodein.GENERIC)
     implementation(Dependencies.Kodein.ANDROID_FRAMEWORK)
-    implementation(Dependencies.Ktor.ANDROID_CLIENT)
     implementation(Dependencies.Kotlin.Android.SERIALIZATION)
     implementation(Dependencies.Kotlin.Android.COROUTINES_CORE)
     implementation(Dependencies.Kotlin.Android.COROUTINES_ANDROID)

@@ -10,6 +10,16 @@ object Dependencies {
         const val JUNIT = "junit:junit:${Versions.Junit.JUNIT}"
     }
 
+    object Mockk {
+        object Test {
+            const val CORE = "io.mockk:mockk:${Versions.Mockk.MOCKK}"
+        }
+
+        object AndroidTest {
+            const val ANDROID = "io.mockk:mockk-android:${Versions.Mockk.MOCKK}"
+        }
+    }
+
     object Kotlin {
         object Android {
             const val SERIALIZATION = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Kotlin.SERIALIZATION}"
@@ -27,9 +37,15 @@ object Dependencies {
             const val CORE_KTX = "androidx.core:core-ktx:${Versions.Androidx.Android.CORE}"
             const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.Androidx.Android.APPCOMPAT}"
             const val SLIDING_PANEL_LAYOUT = "androidx.slidingpanelayout:slidingpanelayout:${Versions.Androidx.Android.SLIDING_PANEL_LAYOUT}"
+            const val SWIPE_REFRESH_LAYOUT = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.Androidx.Android.SWIPE_REFRESH_LAYOUT}"
+            const val PAGING = "androidx.paging:paging-runtime-ktx:${Versions.Androidx.Android.PAGING}"
             const val VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Androidx.Android.LIFE_CYCLE}"
             const val LIFE_CYCLE = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Androidx.Android.LIFE_CYCLE}"
             const val FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.Androidx.Android.FRAGMENT}"
+            const val ROOM_KTX = "androidx.room:room-ktx:${Versions.Androidx.Android.ROOM}"
+            const val ROOM_RUNTIME = "androidx.room:room-runtime:${Versions.Androidx.Android.ROOM}"
+            const val ROOM_COMPILER = "androidx.room:room-compiler:${Versions.Androidx.Android.ROOM}"
+            const val ROOM_PAGING = "androidx.room:room-paging:${Versions.Androidx.Android.ROOM}"
         }
 
         object AndroidTest {

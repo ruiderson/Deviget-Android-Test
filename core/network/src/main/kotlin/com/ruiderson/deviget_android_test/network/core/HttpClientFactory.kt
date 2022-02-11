@@ -1,4 +1,4 @@
-package com.ruiderson.deviget_android_test.core
+package com.ruiderson.deviget_android_test.network.core
 
 import android.util.Log
 import io.ktor.client.HttpClient
