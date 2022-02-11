@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    setupDefaultAndroidLibConfig(isViewBindingEnabled = false)
+    setupDefaultAndroidLibConfig()
     setupDefaultSources()
 
     kotlinOptions {
@@ -17,6 +17,9 @@ android {
 
 dependencies {
     implementation(Dependencies.Kodein.GENERIC)
+
+    implementation(Dependencies.Androidx.Android.CORE_KTX)
     implementation(Dependencies.Androidx.Android.VIEWMODEL)
     implementation(Dependencies.Androidx.Android.FRAGMENT)
+    implementation(Dependencies.Androidx.Android.LIFE_CYCLE)
 }
