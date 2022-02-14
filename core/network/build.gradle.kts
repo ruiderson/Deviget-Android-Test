@@ -18,6 +18,6 @@ android {
 dependencies {
     implementation(Dependencies.Kodein.GENERIC)
     implementation(Dependencies.Ktor.ANDROID_CLIENT)
-    implementation(Dependencies.Ktor.SERIALIZATION)
     implementation(Dependencies.Ktor.LOGGING)
+    implementation(Dependencies.Ktor.SERIALIZATION)
 }

@@ -9,5 +9,6 @@ rootProject.name = "Deviget-Android-Test"
 include(
     ":app",
     ":core:base",
-    ":core:network"
+    ":core:network",
+    ":core:test"
 )
