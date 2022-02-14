@@ -7,12 +7,14 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/topPostsFragmentView"
         android:name="com.ruiderson.deviget_android_test.top_posts.TopPostsFragment"
-        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="match_parent"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/postDetailsFragmentView"
-        android:layout_width="match_parent"
+        android:layout_weight="2"
+        android:layout_width="0dp"
         android:layout_height="match_parent"/>
 
 </androidx.slidingpanelayout.widget.SlidingPaneLayout>

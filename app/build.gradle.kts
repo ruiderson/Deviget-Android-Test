@@ -25,4 +25,8 @@ dependencies {
     implementation(project(Modules.Core.BASE))
     implementation(project(Modules.Core.NETWORK))
     implementation(project(Modules.Core.TEST))
+
+    androidTestImplementation(Dependencies.Androidx.AndroidTest.CORE)
+    androidTestImplementation(Dependencies.Androidx.AndroidTest.ESPRESSO_CORE)
+    androidTestImplementation(Dependencies.Androidx.AndroidTest.JUNIT)
 }
