@@ -14,6 +14,7 @@ android {
 
     kotlinOptions {
         jvmTarget = AndroidConfig.JVM_TARGET
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
     }
 }
 
@@ -32,6 +33,10 @@ dependencies {
     implementation(project(Modules.Core.BASE))
     implementation(project(Modules.Core.NETWORK))
     implementation(project(Modules.Core.TEST))
+
+    testImplementation(Dependencies.Junit.JUNIT)
+    testImplementation(Dependencies.Kotlin.Test.COROUTINES)
+    testImplementation(Dependencies.Mockk.Test.CORE)
 
     androidTestImplementation(Dependencies.Androidx.AndroidTest.CORE)
     androidTestImplementation(Dependencies.Androidx.AndroidTest.ESPRESSO_CORE)
