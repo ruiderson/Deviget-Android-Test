@@ -21,6 +21,7 @@ dependencies {
     implementation(Dependencies.Androidx.Android.SLIDING_PANEL_LAYOUT)
     implementation(Dependencies.Google.MATERIAL)
     implementation(Dependencies.Kodein.GENERIC)
+    implementation(Dependencies.Kotlin.Android.SERIALIZATION)
 
     implementation(project(Modules.Core.BASE))
     implementation(project(Modules.Core.NETWORK))
