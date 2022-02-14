@@ -26,6 +26,7 @@ dependencies {
     implementation(Dependencies.Androidx.Android.ROOM_KTX)
     implementation(Dependencies.Androidx.Android.ROOM_RUNTIME)
     implementation(Dependencies.Androidx.Android.ROOM_PAGING)
+    implementation(Dependencies.Androidx.Android.VIEWMODEL)
     implementation(Dependencies.Google.MATERIAL)
     implementation(Dependencies.Kodein.GENERIC)
     implementation(Dependencies.Kotlin.Android.SERIALIZATION)

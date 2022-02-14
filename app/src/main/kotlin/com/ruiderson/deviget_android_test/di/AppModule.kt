@@ -8,6 +8,8 @@ import com.ruiderson.deviget_android_test.top_posts.data.datasource.RedditDataSo
 import com.ruiderson.deviget_android_test.top_posts.data.datasource.RedditPagingSourceFactory
 import com.ruiderson.deviget_android_test.top_posts.data.network.RedditApi
 import com.ruiderson.deviget_android_test.top_posts.data.network.RedditPostDtoConverter
+import com.ruiderson.deviget_android_test.top_posts.domain.TopPostsUseCase
+import com.ruiderson.deviget_android_test.top_posts.domain.TopPostsViewModel
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
@@ -56,6 +58,18 @@ val appModule = Kodein.Module("appModule") {
     bind() from provider {
         RedditRepository(
             instance(),
+            instance()
+        )
+    }
+
+    bind() from provider {
+        TopPostsUseCase(
+            instance()
+        )
+    }
+
+    bind() from provider {
+        TopPostsViewModel(
             instance()
         )
     }
