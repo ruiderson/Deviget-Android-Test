@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Deviget-Android-Test</string>
+    <string name="dismiss_all">Dismiss All</string>
+    <string name="reddit_posts">Reddit Posts</string>
 </resources>

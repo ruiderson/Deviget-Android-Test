@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0F0F0F</color>
-    <color name="colorOnPrimary">#FFFFFF</color>
-
-    <color name="colorSecondary">#0679FB</color>
-    <color name="colorOnSecondary">#FFFFFF</color>
-
-    <color name="colorLightBackground">#FFFFFF</color>
-    <color name="colorOnLightBackground">#000000</color>
-    <color name="colorDarkBackground">#000000</color>
-    <color name="colorOnDarkBackground">#F8F8F8</color>
-
     <color name="orange">#B97A3A</color>
 </resources>
