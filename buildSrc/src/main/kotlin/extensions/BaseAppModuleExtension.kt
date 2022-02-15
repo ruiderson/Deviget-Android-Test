@@ -34,6 +34,12 @@ fun BaseAppModuleExtension.setupDefaultAndroidConfig(
             isMinifyEnabled = false
         }
     }
+
+    packagingOptions {
+        resources.excludes += "META-INF/AL2.0"
+        resources.excludes += "META-INF/LGPL2.1"
+        resources.excludes += "META-INF/licenses/ASM"
+    }
 }
 
 /*

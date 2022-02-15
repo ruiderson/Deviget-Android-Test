@@ -6,6 +6,7 @@ object Dependencies {
             const val CORE_KTX = "androidx.core:core-ktx:${Versions.Androidx.Android.CORE}"
             const val FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.Androidx.Android.FRAGMENT}"
             const val LIFE_CYCLE = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Androidx.Android.LIFE_CYCLE}"
+            const val PAGING = "androidx.paging:paging-runtime-ktx:${Versions.Androidx.Android.PAGING}"
             const val ROOM_COMPILER = "androidx.room:room-compiler:${Versions.Androidx.Android.ROOM}"
             const val ROOM_KTX = "androidx.room:room-ktx:${Versions.Androidx.Android.ROOM}"
             const val ROOM_PAGING = "androidx.room:room-paging:${Versions.Androidx.Android.ROOM}"
