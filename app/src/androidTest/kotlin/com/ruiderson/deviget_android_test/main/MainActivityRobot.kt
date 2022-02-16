@@ -11,10 +11,19 @@ import com.ruiderson.deviget_android_test.R
 import com.ruiderson.deviget_android_test.base.di.coreModule
 import com.ruiderson.deviget_android_test.di.appModule
 import com.ruiderson.deviget_android_test.network.di.networkModule
+import com.ruiderson.deviget_android_test.shared.domain.SharedRedditPostViewModel
+import com.ruiderson.deviget_android_test.shared.models.RedditPost
 import com.ruiderson.deviget_android_test.test.di.mockKodeinModule
+import io.mockk.spyk
 import org.hamcrest.Matchers.not
+import org.kodein.di.generic.bind
+import org.kodein.di.generic.provider
 
-class MainActivityRobot(block: MainActivityRobot.() -> Unit) {
+class MainActivityRobot(
+    block: MainActivityRobot.() -> Unit
+) {
+
+    private val sharedViewModel = spyk(SharedRedditPostViewModel())
 
     private lateinit var activityScenario: ActivityScenario<MainActivity>
 
@@ -25,6 +34,31 @@ class MainActivityRobot(block: MainActivityRobot.() -> Unit) {
 
     private fun setup() {
         mockKodeinModule(appModule, coreModule, networkModule) {
+            bind(overrides = true) from provider { sharedViewModel }
+        }
+    }
+
+    inner class Arrange(block: Arrange.() -> Unit) {
+        init {
+            block.invoke(this)
+        }
+
+        fun setupOnShowPostDetailsState() {
+            val mockedRedditPost = RedditPost(
+                id = "id",
+                title = "title",
+                author = "author",
+                num_comments = "num_comments",
+                thumbnail = "thumbnail",
+                created_utc = "created_utc",
+                entry_date = "entry_date",
+                isUnread = false
+            )
+            sharedViewModel.onRedditPostClicked(mockedRedditPost)
+        }
+
+        fun setupOnHidePostDetailsState() {
+            sharedViewModel.onDismissAll()
         }
     }
 
@@ -59,12 +93,12 @@ class MainActivityRobot(block: MainActivityRobot.() -> Unit) {
         }
 
         fun verifyPostDetailFragmentIsNotDisplayed() {
-            onView(withId(R.id.postDetailsFragmentView))
+            onView(withId(R.id.postDetailsRootView))
                 .check(matches(not(isDisplayed())))
         }
 
         fun verifyPostDetailFragmentIsDisplayed() {
-            onView(withId(R.id.postDetailsFragmentView))
+            onView(withId(R.id.postDetailsRootView))
                 .check(matches(isDisplayed()))
         }
     }
