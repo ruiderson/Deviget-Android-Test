@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#000000</color>
-    <color name="colorOnPrimary">#A5A5A7</color>
-
-    <color name="colorSecondary">#FFFFFF</color>
-    <color name="colorOnSecondary">#FF000000</color>
-
-    <color name="actionBarColor">#0F0F0F</color>
+    <color name="orange">#B97A3A</color>
 </resources>

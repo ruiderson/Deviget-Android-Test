@@ -6,6 +6,7 @@ object Dependencies {
             const val CORE_KTX = "androidx.core:core-ktx:${Versions.Androidx.Android.CORE}"
             const val FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.Androidx.Android.FRAGMENT}"
             const val LIFE_CYCLE = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Androidx.Android.LIFE_CYCLE}"
+            const val PAGING = "androidx.paging:paging-runtime-ktx:${Versions.Androidx.Android.PAGING}"
             const val ROOM_COMPILER = "androidx.room:room-compiler:${Versions.Androidx.Android.ROOM}"
             const val ROOM_KTX = "androidx.room:room-ktx:${Versions.Androidx.Android.ROOM}"
             const val ROOM_PAGING = "androidx.room:room-paging:${Versions.Androidx.Android.ROOM}"
@@ -17,11 +18,18 @@ object Dependencies {
 
         object AndroidTest {
             const val CORE = "androidx.test:core-ktx:${Versions.Androidx.AndroidTest.CORE}"
+            const val ESPRESSO_CONTRIB = "androidx.test.espresso:espresso-contrib:${Versions.Androidx.AndroidTest.ESPRESSO}"
             const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.Androidx.AndroidTest.ESPRESSO}"
             const val FRAGMENT = "androidx.fragment:fragment-testing:${Versions.Androidx.AndroidTest.FRAGMENT}"
             const val JUNIT = "androidx.test.ext:junit:${Versions.Androidx.AndroidTest.JUNIT}"
+            const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Androidx.AndroidTest.RECYCLER_VIEW}"
             const val TEST_RUNNER = "androidx.test:runner:${Versions.Androidx.AndroidTest.CORE}"
         }
+    }
+
+    object Glide {
+        const val GLIDE = "com.github.bumptech.glide:glide:${Versions.Glide.GLIDE}"
+        const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.Glide.GLIDE}"
     }
 
     object Google {

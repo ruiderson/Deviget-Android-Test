@@ -10,5 +10,6 @@ include(
     ":app",
     ":core:base",
     ":core:network",
+    ":core:styleguide",
     ":core:test"
 )

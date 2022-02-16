@@ -10,12 +10,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidTest">
+        android:theme="@style/Theme.AppTheme">
 
         <activity
             android:name=".main.MainActivity"
-            android:theme="@style/Theme.AndroidTest"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

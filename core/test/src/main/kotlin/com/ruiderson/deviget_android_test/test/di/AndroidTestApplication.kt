@@ -14,6 +14,7 @@ class AndroidTestApplication : Application(), KodeinGlobalAware {
 
     override fun onCreate() {
         super.onCreate()
+        this.kodein
         setupKodein()
     }
 }
@@ -41,6 +42,8 @@ fun resetKodein() {
     Kodein.global.clear()
     setupKodein()
 }
+
+fun getKodeinInstance() = Kodein.global.kodein
 
 fun mockKodeinModule(
     vararg modules: Kodein.Module,

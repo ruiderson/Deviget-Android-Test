@@ -16,13 +16,13 @@ android {
 }
 
 dependencies {
-    implementation(Dependencies.Androidx.Android.VIEWMODEL)
+    implementation(Dependencies.Androidx.Android.APPCOMPAT)
     implementation(Dependencies.Androidx.AndroidTest.CORE)
+    implementation(Dependencies.Androidx.AndroidTest.ESPRESSO_CORE)
+    implementation(Dependencies.Androidx.AndroidTest.RECYCLER_VIEW)
     implementation(Dependencies.Androidx.AndroidTest.TEST_RUNNER)
     implementation(Dependencies.Junit.JUNIT)
     implementation(Dependencies.Kodein.CONF_JVM)
     implementation(Dependencies.Kodein.GENERIC)
-    implementation(Dependencies.Kotlin.Test.COROUTINES) {
-        exclude(group = "org.jetbrains.kotlinx", module = "kotlinx-coroutines-debug")
-    }
+    implementation(Dependencies.Kotlin.Test.COROUTINES)
 }
