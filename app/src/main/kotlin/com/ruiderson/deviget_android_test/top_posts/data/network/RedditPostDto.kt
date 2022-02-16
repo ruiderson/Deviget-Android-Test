@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal data class RedditPostDto (
+internal data class RedditPostDto(
     @SerialName("name")
     val id: String,
     @SerialName("title")

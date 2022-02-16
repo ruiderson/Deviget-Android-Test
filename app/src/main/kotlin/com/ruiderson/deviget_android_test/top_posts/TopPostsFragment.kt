@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.paging.PagingData
 import com.ruiderson.deviget_android_test.R
 import com.ruiderson.deviget_android_test.base.extensions.viewModels
@@ -13,6 +14,7 @@ import com.ruiderson.deviget_android_test.shared.models.RedditPost
 import com.ruiderson.deviget_android_test.top_posts.adapter.RedditPostAdapter
 import com.ruiderson.deviget_android_test.top_posts.adapter.RedditPostAdapterEvent
 import com.ruiderson.deviget_android_test.top_posts.domain.TopPostsViewModel
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.kodein.di.Kodein
@@ -39,9 +41,19 @@ internal class TopPostsFragment : Fragment(R.layout.fragment_top_posts),
     }
 
     private fun setupViews() = with(viewBinding) {
+        handleRedditPostAdapterStates()
         topEntriesRecyclerView.adapter = adapter
-        adapter.setOnAdapterEvent{
+        adapter.setOnAdapterEvent {
             handleRedditPostAdapterEvent(it)
+        }
+
+        topEntriesSwipeRefresh.setOnRefreshListener {
+            viewModel.shouldRefresh()
+            adapter.refresh()
+        }
+
+        dismissAllButton.setOnClickListener {
+            viewModel.dismissAll()
         }
     }
 
@@ -55,10 +67,20 @@ internal class TopPostsFragment : Fragment(R.layout.fragment_top_posts),
         adapter.submitData(redditTopPosts)
     }
 
+    private fun handleRedditPostAdapterStates() = lifecycleScope.launch {
+        adapter.loadStateFlow.collect {
+            viewBinding.topEntriesSwipeRefresh.isRefreshing = it.refresh is LoadState.Loading
+        }
+    }
+
     private fun handleRedditPostAdapterEvent(event: RedditPostAdapterEvent) {
         when(event) {
-            is RedditPostAdapterEvent.OnItemClicked -> Unit
-            is RedditPostAdapterEvent.OnItemDismissed -> Unit
+            is RedditPostAdapterEvent.OnItemClicked -> onItemClicked(event.redditPost)
+            is RedditPostAdapterEvent.OnItemDismissed -> viewModel.markRedditPostAsDismissed(event.redditPost)
         }
+    }
+
+    private fun onItemClicked(redditPost: RedditPost) {
+        viewModel.markRedditPostAsRead(redditPost)
     }
 }

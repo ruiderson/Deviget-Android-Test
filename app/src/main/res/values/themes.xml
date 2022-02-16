@@ -1,9 +1,19 @@
 <resources>
 
-    <style name="Button.Dismiss" parent="Widget.Material3.Button">
+    <style name="Button.DismissAll" parent="Widget.Material3.Button">
         <item name="textAllCaps">false</item>
         <item name="backgroundTint">@color/colorDarkBackground</item>
         <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">@dimen/body1_text_size</item>
+    </style>
+
+    <style name="Button.Dismiss" parent="Widget.Material3.Button">
+        <item name="textAllCaps">false</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:drawablePadding">@dimen/margin_small</item>
+        <item name="android:drawableStart">@drawable/ic_dismiss</item>
+        <item name="backgroundTint">@color/colorDarkBackground</item>
+        <item name="android:textColor">@color/colorOnDarkBackground</item>
         <item name="android:textSize">@dimen/body1_text_size</item>
     </style>
 </resources>

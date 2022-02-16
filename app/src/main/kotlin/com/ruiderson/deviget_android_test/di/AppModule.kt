@@ -31,7 +31,9 @@ val appModule = Kodein.Module("appModule") {
     }
 
     bind() from provider {
-        RedditPostDtoConverter()
+        RedditPostDtoConverter(
+            instance()
+        )
     }
 
     bind() from singleton {
@@ -71,9 +73,7 @@ val appModule = Kodein.Module("appModule") {
     }
 
     bind() from provider {
-        TopPostsViewModel(
-            instance()
-        )
+        TopPostsViewModel(kodein)
     }
 
     bind<RedditPostAdapter>() with provider {

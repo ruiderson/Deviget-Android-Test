@@ -8,38 +8,52 @@ import org.junit.runner.RunWith
 class MainActivityTest {
 
     @Test
-    fun whenLaunchActivity_verifyTopPostsFragmentIsDisplayed() {
-        MainActivityRobot {
+    fun whenLaunchActivity_verifyTopPostsFragmentIsDisplayed() = runMainActivityTest {
+        Act {
             launchActivity()
+        }
 
+        Assert {
             verifyTopPostsFragmentIsDisplayed()
         }
     }
 
     @Test
-    fun whenLaunchActivityOnLandscape_verifyTopPostsFragmentIsDisplayed() {
-        MainActivityRobot {
+    fun whenLaunchActivityOnLandscape_verifyTopPostsFragmentIsDisplayed() = runMainActivityTest {
+        Act {
             launchActivityOnLandscape()
+        }
 
+        Assert {
             verifyTopPostsFragmentIsDisplayed()
         }
     }
 
     @Test
-    fun whenLaunchActivity_verifyPostDetailFragmentIsNotDisplayed() {
-        MainActivityRobot {
+    fun whenLaunchActivity_verifyPostDetailFragmentIsNotDisplayed() = runMainActivityTest {
+        Act {
             launchActivity()
+        }
 
+        Assert {
             verifyPostDetailFragmentIsNotDisplayed()
         }
     }
 
     @Test
-    fun whenLaunchActivityOnLandscape_verifyPostDetailFragmentIsDisplayed() {
-        MainActivityRobot {
+    fun whenLaunchActivityOnLandscape_verifyPostDetailFragmentIsDisplayed() = runMainActivityTest {
+        Act {
             launchActivityOnLandscape()
+        }
 
+        Assert {
             verifyPostDetailFragmentIsDisplayed()
         }
+    }
+
+    fun runMainActivityTest(
+        block: MainActivityRobot.() -> Unit
+    ) {
+        MainActivityRobot(block)
     }
 }

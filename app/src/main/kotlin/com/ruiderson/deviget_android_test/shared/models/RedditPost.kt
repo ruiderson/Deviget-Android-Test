@@ -18,6 +18,8 @@ internal data class RedditPost(
     val thumbnail: String?,
     @ColumnInfo(name = "created_utc")
     val created_utc: String,
+    @ColumnInfo(name = "entry_date")
+    val entry_date: String,
     @ColumnInfo(name = "isUnread")
     var isUnread: Boolean = true,
     @ColumnInfo(name = "isDismissed")

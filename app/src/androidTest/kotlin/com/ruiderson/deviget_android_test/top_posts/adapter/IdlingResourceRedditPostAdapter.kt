@@ -12,7 +12,7 @@ internal class IdlingResourceRedditPostAdapter(
         idlingResource.increment()
     }
 
-    override fun onBindViewHolderFinished() {
+    override fun onItemBind(position: Int) {
         if(isIdleIncremented) {
             idlingResource.decrement()
             isIdleIncremented = false

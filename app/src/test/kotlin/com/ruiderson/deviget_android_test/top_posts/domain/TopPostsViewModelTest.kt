@@ -11,6 +11,9 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Rule
 import org.junit.Test
+import org.kodein.di.Kodein
+import org.kodein.di.generic.bind
+import org.kodein.di.generic.provider
 
 @ExperimentalCoroutinesApi
 class TopPostsViewModelTest {
@@ -26,7 +29,11 @@ class TopPostsViewModelTest {
         coEvery { dismissAll() } answers { }
     }
 
-    private val viewModel = TopPostsViewModel(useCase)
+    private val kodein = Kodein {
+        bind() from provider { useCase }
+    }
+
+    private val viewModel = TopPostsViewModel(kodein)
 
     @Test
     fun whenGetRedditTopPosts_verifyUseCaseIsCalled() {

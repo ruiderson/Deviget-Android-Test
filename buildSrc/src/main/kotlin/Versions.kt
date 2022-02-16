@@ -15,9 +15,14 @@ internal object Versions {
         object AndroidTest {
             const val CORE = "1.4.0"
             const val JUNIT = "1.1.3"
+            const val RECYCLER_VIEW = "1.2.1"
             const val ESPRESSO = "3.4.0"
             const val FRAGMENT = "1.4.1"
         }
+    }
+
+    object Glide {
+        const val GLIDE = "4.13.0"
     }
 
     object Google {

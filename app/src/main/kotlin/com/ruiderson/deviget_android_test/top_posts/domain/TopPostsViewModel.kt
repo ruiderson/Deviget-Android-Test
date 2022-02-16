@@ -4,10 +4,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ruiderson.deviget_android_test.shared.models.RedditPost
 import kotlinx.coroutines.launch
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.generic.instance
 
 internal class TopPostsViewModel(
-    private val useCase: TopPostsUseCase
-) : ViewModel() {
+    override val kodein: Kodein
+) : ViewModel(), KodeinAware {
+
+    private val useCase: TopPostsUseCase by kodein.instance()
 
     fun getRedditTopPosts() = useCase.getRedditTopPosts()
 

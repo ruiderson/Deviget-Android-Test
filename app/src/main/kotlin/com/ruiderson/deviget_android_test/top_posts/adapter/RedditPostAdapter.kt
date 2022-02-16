@@ -24,10 +24,10 @@ internal abstract class RedditPostAdapter : PagingDataAdapter<RedditPost, Reddit
         getItem(position)?.let {
             holder.bind(it)
         }
-        if (this.itemCount == position + 1) onBindViewHolderFinished()
+        onItemBind(position)
     }
 
-    abstract fun onBindViewHolderFinished()
+    abstract fun onItemBind(position: Int)
 
     private class RedditPostDiffCallBack : DiffUtil.ItemCallback<RedditPost>() {
         override fun areItemsTheSame(oldItem: RedditPost, newItem: RedditPost): Boolean {

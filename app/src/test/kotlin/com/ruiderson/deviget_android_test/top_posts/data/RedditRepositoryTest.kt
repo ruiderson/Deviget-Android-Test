@@ -109,6 +109,7 @@ class RedditRepositoryTest {
         num_comments = "",
         thumbnail = "thum",
         created_utc = "create",
+        entry_date = "",
         isUnread = true,
         isDismissed = false
     )

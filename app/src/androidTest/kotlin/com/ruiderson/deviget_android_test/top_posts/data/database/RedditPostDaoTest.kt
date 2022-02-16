@@ -110,6 +110,7 @@ class RedditPostDaoTest {
                     num_comments = i.toString(),
                     thumbnail = "thum $i",
                     created_utc = "create $i",
+                    entry_date = "entry_date $i",
                     isUnread = true,
                     isDismissed = false
                 )

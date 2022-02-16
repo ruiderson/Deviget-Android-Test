@@ -18,11 +18,18 @@ object Dependencies {
 
         object AndroidTest {
             const val CORE = "androidx.test:core-ktx:${Versions.Androidx.AndroidTest.CORE}"
+            const val ESPRESSO_CONTRIB = "androidx.test.espresso:espresso-contrib:${Versions.Androidx.AndroidTest.ESPRESSO}"
             const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.Androidx.AndroidTest.ESPRESSO}"
             const val FRAGMENT = "androidx.fragment:fragment-testing:${Versions.Androidx.AndroidTest.FRAGMENT}"
             const val JUNIT = "androidx.test.ext:junit:${Versions.Androidx.AndroidTest.JUNIT}"
+            const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.Androidx.AndroidTest.RECYCLER_VIEW}"
             const val TEST_RUNNER = "androidx.test:runner:${Versions.Androidx.AndroidTest.CORE}"
         }
+    }
+
+    object Glide {
+        const val GLIDE = "com.github.bumptech.glide:glide:${Versions.Glide.GLIDE}"
+        const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.Glide.GLIDE}"
     }
 
     object Google {

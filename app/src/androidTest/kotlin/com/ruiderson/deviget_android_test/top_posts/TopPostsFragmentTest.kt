@@ -22,16 +22,209 @@ class TopPostsFragmentTest {
     }
 
     @After
-    fun finish() {
+    fun tearDown() {
         IdlingRegistry.getInstance().unregister(idlingResource)
     }
 
+    @Test
+    fun whenLaunchFragment_verifyGetRedditTopPostsIsCalled() = runTopPostsFragmentTest {
+        Act {
+            launchFragment()
+        }
+
+        Assert {
+            verifyGetRedditTopPostsIsCalled()
+        }
+    }
 
     @Test
-    fun whenLaunchFragment_verifyItemListCountIsCorrect() = runTopPostsFragmentTest {
-        launchFragment()
+    fun whenLaunchFragment_verifyAdapterSubmitDataIsCalled() = runTopPostsFragmentTest {
+        Act {
+            launchFragment()
+        }
 
-        verifyItemListCountIsCorrect()
+        Assert {
+            verifyAdapterSubmitDataIsCalled()
+        }
+    }
+
+    @Test
+    fun whenLaunchFragment_verifyItemCountIsCorrect() = runTopPostsFragmentTest {
+        Act {
+            launchFragment()
+        }
+
+        Assert {
+            verifyItemCountIsCorrect()
+        }
+    }
+
+    @Test
+    fun whenPerformSwipeRefresh_verifyShouldRefreshIsCalled() = runTopPostsFragmentTest {
+        Act {
+            launchFragment()
+            performSwipeRefresh()
+        }
+
+        Assert {
+            verifyShouldRefreshIsCalled()
+        }
+    }
+
+    @Test
+    fun whenPerformSwipeRefresh_verifyAdapterRefreshIsCalled() = runTopPostsFragmentTest {
+        Act {
+            launchFragment()
+            performSwipeRefresh()
+        }
+
+        Assert {
+            verifyAdapterRefreshIsCalled()
+        }
+    }
+
+    @Test
+    fun whenPerformDismissAllClick_verifyDismissAllIsCalled() = runTopPostsFragmentTest {
+        Act {
+            launchFragment()
+            performDismissAllClick()
+        }
+
+        Assert {
+            verifyDismissAllIsCalled()
+        }
+    }
+
+    @Test
+    fun whenLaunchFragment_verifyItemIsUnread() = runTopPostsFragmentTest {
+        val itemPosition = 5
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+        }
+
+        Assert {
+            verifyItemIsUnread(itemPosition)
+        }
+    }
+
+    @Test
+    fun whenLaunchFragment_verifyItemAuthorIsCorrect() = runTopPostsFragmentTest {
+        val itemPosition = 5
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+        }
+
+        Assert {
+            verifyItemAuthorIsCorrect(itemPosition)
+        }
+    }
+
+    @Test
+    fun whenLaunchFragment_verifyItemEntryDateIsCorrect() = runTopPostsFragmentTest {
+        val itemPosition = 5
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+        }
+
+        Assert {
+            verifyItemEntryDateIsCorrect(itemPosition)
+        }
+    }
+
+    @Test
+    fun givenValidItemThumbnail_whenLaunchFragment_verifyItemThumbnailIsDisplayed() = runTopPostsFragmentTest {
+        val itemPosition = 0
+
+        Arrange {
+            insertValidItemThubmnail(itemPosition)
+        }
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+        }
+
+        Assert {
+            verifyItemThumbnailIsDisplayed(itemPosition)
+        }
+    }
+
+    @Test
+    fun givenInvalidItemThumbnail_whenLaunchFragment_verifyItemThumbnailIsNotDisplayed() = runTopPostsFragmentTest {
+        val itemPosition = 5
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+        }
+
+        Assert {
+            verifyItemThumbnailIsNotDisplayed(itemPosition)
+        }
+    }
+
+    @Test
+    fun whenLaunchFragment_verifyItemTitleIsCorrect() = runTopPostsFragmentTest {
+        val itemPosition = 5
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+        }
+
+        Assert {
+            verifyItemTitleIsCorrect(itemPosition)
+        }
+    }
+
+    @Test
+    fun whenLaunchFragment_verifyItemCommentsIsCorrect() = runTopPostsFragmentTest {
+        val itemPosition = 5
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+        }
+
+        Assert {
+            verifyItemCommentsIsCorrect(itemPosition)
+        }
+    }
+
+    @Test
+    fun whenItemDismissButtonClicked_verifyItemDismissIsCalled() = runTopPostsFragmentTest {
+        val itemPosition = 5
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+            performItemDismissButtonClick(itemPosition)
+        }
+
+        Assert {
+            verifyItemDismissIsCalled()
+        }
+    }
+
+    @Test
+    fun whenItemClicked_verifyMarkRedditPostAsReadIsCalled() = runTopPostsFragmentTest {
+        val itemPosition = 5
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+            performClickAtPosition(itemPosition)
+        }
+
+        Assert {
+            verifyMarkRedditPostAsReadIsCalled()
+        }
     }
 
     private fun runTopPostsFragmentTest(
