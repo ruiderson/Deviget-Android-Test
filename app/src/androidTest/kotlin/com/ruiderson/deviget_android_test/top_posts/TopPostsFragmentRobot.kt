@@ -18,6 +18,7 @@ import com.ruiderson.deviget_android_test.R
 import com.ruiderson.deviget_android_test.base.di.coreModule
 import com.ruiderson.deviget_android_test.base.utils.TimestampConverter
 import com.ruiderson.deviget_android_test.di.appModule
+import com.ruiderson.deviget_android_test.shared.domain.SharedRedditPostViewModel
 import com.ruiderson.deviget_android_test.test.di.getKodeinInstance
 import com.ruiderson.deviget_android_test.test.di.mockKodeinModule
 import com.ruiderson.deviget_android_test.test.espresso.RecyclerViewItemCountAssertion
@@ -80,7 +81,9 @@ class TopPostsFragmentRobot(
         RedditDatabase::class.java
     ).build()
 
-    private val viewModel: TopPostsViewModel = spyk(TopPostsViewModel(kodein))
+    private val sharedViewModel = spyk(SharedRedditPostViewModel())
+
+    private val viewModel = spyk(TopPostsViewModel(kodein))
 
     private lateinit var fragmentScenario: FragmentScenario<TopPostsFragment>
 
@@ -94,6 +97,7 @@ class TopPostsFragmentRobot(
             bind<RedditPostAdapter>(overrides = true) with provider { adapter }
             bind(overrides = true) from provider { api }
             bind(overrides = true) from provider { dataBase }
+            bind(overrides = true) from provider { sharedViewModel }
             bind(overrides = true) from provider { viewModel }
         }
     }
@@ -206,6 +210,10 @@ class TopPostsFragmentRobot(
             verify { viewModel.dismissAll() }
         }
 
+        fun verifyOnDismissAllIsCalled() {
+            verify { sharedViewModel.onDismissAll() }
+        }
+
         fun verifyItemIsUnread(itemPosition: Int) {
             onView(withId(R.id.topEntriesRecyclerView))
                 .check(matches(itemAtPosition(
@@ -292,8 +300,16 @@ class TopPostsFragmentRobot(
             verify { viewModel.markRedditPostAsDismissed(any()) }
         }
 
+        fun verifySharedViewModelDismissIsCalled() {
+            verify { sharedViewModel.onRedditPostDismissed(any()) }
+        }
+
         fun verifyMarkRedditPostAsReadIsCalled() {
             verify { viewModel.markRedditPostAsRead(any()) }
+        }
+
+        fun verifySharedViewModelClickIsCalled() {
+            verify { sharedViewModel.onRedditPostClicked(any()) }
         }
     }
 

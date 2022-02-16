@@ -2,6 +2,7 @@ package com.ruiderson.deviget_android_test.di
 
 import android.content.Context
 import androidx.room.Room
+import com.ruiderson.deviget_android_test.shared.domain.SharedRedditPostViewModel
 import com.ruiderson.deviget_android_test.top_posts.adapter.RedditPostAdapter
 import com.ruiderson.deviget_android_test.top_posts.adapter.RedditPostAdapterImpl
 import com.ruiderson.deviget_android_test.top_posts.data.RedditRepository
@@ -78,5 +79,9 @@ val appModule = Kodein.Module("appModule") {
 
     bind<RedditPostAdapter>() with provider {
         RedditPostAdapterImpl()
+    }
+
+    bind() from singleton {
+        SharedRedditPostViewModel()
     }
 }
