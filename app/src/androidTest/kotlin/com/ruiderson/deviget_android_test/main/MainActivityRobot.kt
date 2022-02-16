@@ -59,12 +59,12 @@ class MainActivityRobot(block: MainActivityRobot.() -> Unit) {
         }
 
         fun verifyPostDetailFragmentIsNotDisplayed() {
-            onView(withId(R.id.postDetailsFragmentView))
+            onView(withId(R.id.postDetailsRootView))
                 .check(matches(not(isDisplayed())))
         }
 
         fun verifyPostDetailFragmentIsDisplayed() {
-            onView(withId(R.id.postDetailsFragmentView))
+            onView(withId(R.id.postDetailsRootView))
                 .check(matches(isDisplayed()))
         }
     }
