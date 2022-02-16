@@ -19,6 +19,6 @@ internal class RedditClientImpl(
     )
 
     companion object {
-        private const val BASE_URL = "reddit.com/r"
+        private const val BASE_URL = "reddit.com"
     }
 }
