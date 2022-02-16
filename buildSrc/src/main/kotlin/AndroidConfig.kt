@@ -10,7 +10,8 @@ object AndroidConfig {
     const val TARGET_SDK = COMPILE_SDK
     const val MIN_SDK = 26
 
-    const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
+    const val TEST_INSTRUMENTATION_RUNNER = "com.ruiderson.deviget_android_test.test.runner.KodeinTestRunner"
+    const val TEST_INSTRUMENTATION_RUNNER_DEFAULT = "androidx.test.runner.AndroidJUnitRunner"
 
     val JAVA_VERSION = JavaVersion.VERSION_1_8
     const val JVM_TARGET = "1.8"

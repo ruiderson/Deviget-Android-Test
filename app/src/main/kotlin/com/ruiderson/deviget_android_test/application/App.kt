@@ -2,6 +2,7 @@ package com.ruiderson.deviget_android_test.application
 
 import android.app.Application
 import android.content.Context
+import androidx.lifecycle.ViewModelProvider
 import com.ruiderson.deviget_android_test.di.appModule
 import com.ruiderson.deviget_android_test.network.di.networkModule
 import com.ruiderson.deviget_android_test.base.extensions.ViewModelFactory
@@ -17,6 +18,8 @@ internal class App : Application(), KodeinAware {
         import(appModule)
         import(networkModule)
         bind<Context>() with instance(this@App.applicationContext)
-        bind() from singleton { ViewModelFactory(this) }
+        bind<ViewModelProvider.Factory>() with singleton {
+            ViewModelFactory(kodein)
+        }
     }
 }
