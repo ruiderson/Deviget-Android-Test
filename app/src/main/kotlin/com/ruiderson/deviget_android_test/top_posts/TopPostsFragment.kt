@@ -10,6 +10,7 @@ import com.ruiderson.deviget_android_test.R
 import com.ruiderson.deviget_android_test.base.extensions.viewModels
 import com.ruiderson.deviget_android_test.base.extensions.viewBinding
 import com.ruiderson.deviget_android_test.databinding.FragmentTopPostsBinding
+import com.ruiderson.deviget_android_test.shared.domain.SharedRedditPostViewModel
 import com.ruiderson.deviget_android_test.shared.models.RedditPost
 import com.ruiderson.deviget_android_test.top_posts.adapter.RedditPostAdapter
 import com.ruiderson.deviget_android_test.top_posts.adapter.RedditPostAdapterEvent
@@ -29,6 +30,8 @@ internal class TopPostsFragment : Fragment(R.layout.fragment_top_posts),
     override val kodein: Kodein by kodein()
 
     private val viewModel: TopPostsViewModel by viewModels()
+
+    private val sharedViewModel: SharedRedditPostViewModel by viewModels()
 
     private val viewBinding: FragmentTopPostsBinding by viewBinding()
 
@@ -54,6 +57,7 @@ internal class TopPostsFragment : Fragment(R.layout.fragment_top_posts),
 
         dismissAllButton.setOnClickListener {
             viewModel.dismissAll()
+            sharedViewModel.onDismissAll()
         }
     }
 
@@ -76,11 +80,17 @@ internal class TopPostsFragment : Fragment(R.layout.fragment_top_posts),
     private fun handleRedditPostAdapterEvent(event: RedditPostAdapterEvent) {
         when(event) {
             is RedditPostAdapterEvent.OnItemClicked -> onItemClicked(event.redditPost)
-            is RedditPostAdapterEvent.OnItemDismissed -> viewModel.markRedditPostAsDismissed(event.redditPost)
+            is RedditPostAdapterEvent.OnItemDismissed -> onItemDismissed(event.redditPost)
         }
     }
 
     private fun onItemClicked(redditPost: RedditPost) {
         viewModel.markRedditPostAsRead(redditPost)
+        sharedViewModel.onRedditPostClicked(redditPost)
+    }
+
+    private fun onItemDismissed(redditPost: RedditPost) {
+        viewModel.markRedditPostAsDismissed(redditPost)
+        sharedViewModel.onRedditPostDismissed(redditPost)
     }
 }

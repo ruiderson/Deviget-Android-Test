@@ -96,6 +96,18 @@ class TopPostsFragmentTest {
     }
 
     @Test
+    fun whenPerformDismissAllClick_verifyOnDismissAllIsCalled() = runTopPostsFragmentTest {
+        Act {
+            launchFragment()
+            performDismissAllClick()
+        }
+
+        Assert {
+            verifyOnDismissAllIsCalled()
+        }
+    }
+
+    @Test
     fun whenLaunchFragment_verifyItemIsUnread() = runTopPostsFragmentTest {
         val itemPosition = 5
 
@@ -231,6 +243,21 @@ class TopPostsFragmentTest {
     }
 
     @Test
+    fun whenItemDismissButtonClicked_verifySharedViewModelDismissIsCalled() = runTopPostsFragmentTest {
+        val itemPosition = 5
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+            performItemDismissButtonClick(itemPosition)
+        }
+
+        Assert {
+            verifySharedViewModelDismissIsCalled()
+        }
+    }
+
+    @Test
     fun whenItemClicked_verifyMarkRedditPostAsReadIsCalled() = runTopPostsFragmentTest {
         val itemPosition = 5
 
@@ -242,6 +269,21 @@ class TopPostsFragmentTest {
 
         Assert {
             verifyMarkRedditPostAsReadIsCalled()
+        }
+    }
+
+    @Test
+    fun whenItemClicked_verifySharedViewModelClickIsCalled() = runTopPostsFragmentTest {
+        val itemPosition = 5
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+            performClickAtPosition(itemPosition)
+        }
+
+        Assert {
+            verifySharedViewModelClickIsCalled()
         }
     }
 

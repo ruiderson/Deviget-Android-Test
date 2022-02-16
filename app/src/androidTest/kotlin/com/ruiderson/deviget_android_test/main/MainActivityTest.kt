@@ -51,7 +51,37 @@ class MainActivityTest {
         }
     }
 
-    fun runMainActivityTest(
+    @Test
+    fun whenOnShowPostDetailsState_verifyPostDetailFragmentIsDisplayed() = runMainActivityTest {
+        Arrange {
+            setupOnShowPostDetailsState()
+        }
+
+        Act {
+            launchActivity()
+        }
+
+        Assert {
+            verifyPostDetailFragmentIsDisplayed()
+        }
+    }
+
+    @Test
+    fun whenOnHidePostDetailsState_verifyPostDetailFragmentIsNotDisplayed() = runMainActivityTest {
+        Arrange {
+            setupOnHidePostDetailsState()
+        }
+
+        Act {
+            launchActivity()
+        }
+
+        Assert {
+            verifyPostDetailFragmentIsNotDisplayed()
+        }
+    }
+
+    private fun runMainActivityTest(
         block: MainActivityRobot.() -> Unit
     ) {
         MainActivityRobot(block)
