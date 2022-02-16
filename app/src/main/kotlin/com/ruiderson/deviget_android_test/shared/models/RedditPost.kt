@@ -21,7 +21,7 @@ internal data class RedditPost(
     @ColumnInfo(name = "entry_date")
     val entry_date: String,
     @ColumnInfo(name = "isUnread")
-    var isUnread: Boolean = true,
+    var isUnread: Boolean,
     @ColumnInfo(name = "isDismissed")
     var isDismissed: Boolean = false
 )

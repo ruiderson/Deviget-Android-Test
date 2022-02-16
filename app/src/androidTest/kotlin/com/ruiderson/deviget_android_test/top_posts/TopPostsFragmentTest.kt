@@ -110,6 +110,24 @@ class TopPostsFragmentTest {
     }
 
     @Test
+    fun givenReadItem_whenLaunchFragment_verifyItemIsRead() = runTopPostsFragmentTest {
+        val itemPosition = 0
+
+        Arrange {
+            insertReadItem(itemPosition)
+        }
+
+        Act {
+            launchFragment()
+            performScrollAtPosition(itemPosition)
+        }
+
+        Assert {
+            verifyItemIsRead(itemPosition)
+        }
+    }
+
+    @Test
     fun whenLaunchFragment_verifyItemAuthorIsCorrect() = runTopPostsFragmentTest {
         val itemPosition = 5
 

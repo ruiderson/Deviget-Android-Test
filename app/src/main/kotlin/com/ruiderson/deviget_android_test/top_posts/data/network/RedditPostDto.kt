@@ -16,5 +16,6 @@ internal data class RedditPostDto(
     @SerialName("thumbnail")
     val thumbnail: String?,
     @SerialName("created_utc")
-    val created_utc: String
+    val created_utc: String,
+    val isUnread: Boolean = true
 )

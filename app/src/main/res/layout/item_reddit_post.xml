@@ -31,8 +31,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintBaseline_toBaselineOf="@+id/redditPostEntryDate"
-        app:layout_constraintWidth_default="wrap"
-        android:layout_width="0dp"
+        app:layout_constrainedWidth="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <androidx.appcompat.widget.AppCompatTextView

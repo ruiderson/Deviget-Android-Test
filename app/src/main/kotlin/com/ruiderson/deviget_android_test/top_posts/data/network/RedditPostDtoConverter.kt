@@ -14,7 +14,8 @@ internal class RedditPostDtoConverter(
         num_comments = redditPostDto.num_comments,
         thumbnail = redditPostDto.thumbnail,
         created_utc = redditPostDto.created_utc,
-        entry_date = timestampConverter.fromString(redditPostDto.created_utc)
+        entry_date = timestampConverter.fromString(redditPostDto.created_utc),
+        isUnread = redditPostDto.isUnread
     )
 
     fun convertAll(postsList: List<RedditPostDto>) = postsList.map {

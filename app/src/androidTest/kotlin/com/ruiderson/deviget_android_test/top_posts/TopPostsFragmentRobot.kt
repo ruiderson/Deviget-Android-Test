@@ -103,6 +103,21 @@ class TopPostsFragmentRobot(
             block.invoke(this)
         }
 
+        fun insertReadItem(itemPosition: Int) {
+            redditPostList.add(
+                itemPosition,
+                RedditPostDto(
+                    id = "custom item",
+                    title = "custom title",
+                    author = "custom author",
+                    num_comments = "0",
+                    thumbnail = "",
+                    created_utc = "1644946968.0",
+                    isUnread = false
+                )
+            )
+        }
+
         fun insertValidItemThubmnail(itemPosition: Int) {
             redditPostList.add(
                 itemPosition,
@@ -196,6 +211,15 @@ class TopPostsFragmentRobot(
                 .check(matches(itemAtPosition(
                     itemPosition,
                     isDisplayed(),
+                    R.id.isUnreadView
+                )))
+        }
+
+        fun verifyItemIsRead(itemPosition: Int) {
+            onView(withId(R.id.topEntriesRecyclerView))
+                .check(matches(itemAtPosition(
+                    itemPosition,
+                    not(isDisplayed()),
                     R.id.isUnreadView
                 )))
         }
