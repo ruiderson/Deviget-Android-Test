@@ -10,7 +10,7 @@ internal class RedditApi(
         limit: Int,
         after: String?
     ): RedditTopPostsDto = client.get(
-        path = "subreddit/hot.json?limit=${limit}${getAfterQuery(after)}"
+        path = "/top.json?limit=${limit}${getAfterQuery(after)}"
     )
 
     private fun getAfterQuery(after: String?) = after?.let {
