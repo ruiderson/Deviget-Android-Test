@@ -87,6 +87,8 @@ val appModule = Kodein.Module("appModule") {
     }
 
     bind() from provider {
-        ImageViewerNavigation()
+        ImageViewerNavigation(
+            instance()
+        )
     }
 }

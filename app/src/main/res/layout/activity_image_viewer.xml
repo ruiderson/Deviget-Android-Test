@@ -5,7 +5,7 @@
     android:id="@+id/postDetailsRootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBackground">
+    android:background="@color/colorDarkBackground">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/imageViewerToolbar"
@@ -17,6 +17,8 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             tools:title="Post title"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationContentDescription="@string/navigation_back_description"
             app:titleTextColor="@color/colorOnPrimary"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"

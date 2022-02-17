@@ -25,7 +25,7 @@ class MainActivityRobot(
 
     private val sharedViewModel = spyk(SharedRedditPostViewModel())
 
-    private lateinit var activityScenario: ActivityScenario<MainActivity>
+    private lateinit var activity: MainActivity
 
     init {
         setup()
@@ -68,16 +68,21 @@ class MainActivityRobot(
         }
 
         fun launchActivity() {
-            activityScenario = launch(MainActivity::class.java)
-            activityScenario.onActivity {
-                it.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            launch(MainActivity::class.java).also { activityScenario ->
+                activityScenario.onActivity {
+                    activity = it
+                    it.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
             }
+
         }
 
         fun launchActivityOnLandscape() {
-            activityScenario = launch(MainActivity::class.java)
-            activityScenario.onActivity {
-                it.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            launch(MainActivity::class.java).also { activityScenario ->
+                activityScenario.onActivity {
+                    activity = it
+                    it.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                }
             }
         }
     }

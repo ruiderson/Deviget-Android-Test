@@ -1,17 +1,19 @@
 package com.ruiderson.deviget_android_test.image_viewer.domain
 
 import android.content.Context
-import android.content.Intent
+import com.ruiderson.deviget_android_test.base.utils.IntentFactory
 import com.ruiderson.deviget_android_test.image_viewer.ImageViewerActivity
 import com.ruiderson.deviget_android_test.shared.models.RedditPost
 
-internal class ImageViewerNavigation {
+internal class ImageViewerNavigation(
+    private val intentFactory: IntentFactory
+) {
 
     fun navigateToImageViewer(
         context: Context,
         redditPost: RedditPost
     ) = with(context) {
-        val intent = Intent(context, ImageViewerActivity::class.java).apply {
+        val intent = intentFactory.create(ImageViewerActivity::class.java).apply {
             putExtra(REDDIT_POST_EXTRA, redditPost)
         }
         startActivity(intent)

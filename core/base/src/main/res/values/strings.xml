@@ -1,4 +1,6 @@
 <resources>
+    <string name="navigation_back_description">Navigate back</string>
+
     <string name="just_now">just now</string>
     <string name="one_minute_ago">1 minute ago</string>
     <string name="minutes_ago">minutes ago</string>
