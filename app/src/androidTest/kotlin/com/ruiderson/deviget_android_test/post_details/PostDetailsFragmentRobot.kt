@@ -3,14 +3,21 @@ package com.ruiderson.deviget_android_test.post_details
 import androidx.fragment.app.testing.FragmentScenario
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.ruiderson.deviget_android_test.R
 import com.ruiderson.deviget_android_test.di.appModule
+import com.ruiderson.deviget_android_test.image_viewer.domain.ImageViewerNavigation
 import com.ruiderson.deviget_android_test.shared.domain.SharedRedditPostViewModel
 import com.ruiderson.deviget_android_test.shared.models.RedditPost
 import com.ruiderson.deviget_android_test.test.di.mockKodeinModule
+import io.mockk.every
+import io.mockk.mockk
 import io.mockk.spyk
+import io.mockk.verify
 import org.hamcrest.Matchers.not
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.provider
@@ -18,6 +25,10 @@ import org.kodein.di.generic.provider
 class PostDetailsFragmentRobot(
     block: PostDetailsFragmentRobot.() -> Unit
 ) {
+
+    private val imageViewerNavigation: ImageViewerNavigation = mockk {
+        every { navigateToImageViewer(any(), any()) } answers { }
+    }
 
     private val sharedViewModel = spyk(SharedRedditPostViewModel())
 
@@ -42,6 +53,7 @@ class PostDetailsFragmentRobot(
     private fun setup() {
         mockKodeinModule(appModule) {
             bind(overrides = true) from provider { sharedViewModel }
+            bind(overrides = true) from provider { imageViewerNavigation }
         }
     }
 
@@ -84,6 +96,11 @@ class PostDetailsFragmentRobot(
                 themeResId = R.style.Theme_AppTheme
             )
         }
+
+        fun performImageViewClick() {
+            onView(withId(R.id.postDetailsImageView))
+                .perform(click())
+        }
     }
 
     inner class Assert(block: Assert.() -> Unit) {
@@ -121,6 +138,10 @@ class PostDetailsFragmentRobot(
         fun verifyImageIsVisible() {
             onView(withId(R.id.postDetailsImageView))
                 .check(matches(isDisplayed()))
+        }
+
+        fun verifyNavigateToImageViewerIsCalled() {
+            verify { imageViewerNavigation.navigateToImageViewer(any(), any()) }
         }
     }
 }

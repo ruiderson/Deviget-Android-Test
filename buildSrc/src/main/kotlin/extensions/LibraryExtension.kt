@@ -22,6 +22,10 @@ fun LibraryExtension.setupDefaultAndroidLibConfig(
         targetCompatibility = AndroidConfig.JAVA_VERSION
     }
 
+    testOptions {
+        animationsDisabled = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false

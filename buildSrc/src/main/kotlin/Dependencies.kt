@@ -48,8 +48,6 @@ object Dependencies {
 
     object Kotlin {
         object Android {
-            const val COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.COROUTINES}"
-            const val COROUTINES_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.COROUTINES}"
             const val SERIALIZATION = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Kotlin.SERIALIZATION}"
         }
 
@@ -77,6 +75,7 @@ object Dependencies {
     object Plugins {
         const val ANDROID = "com.android.tools.build:gradle:${Versions.Plugins.ANDROID}"
         const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Plugins.KOTLIN}"
-        const val KOTLIN_SERIALIZATION = "org.jetbrains.kotlin:kotlin-serialization:${Versions.Plugins.KOTLIN}"
+        const val SERIALIZATION = "org.jetbrains.kotlin:kotlin-serialization:${Versions.Plugins.KOTLIN}"
+        const val EXTENSIONS = "org.jetbrains.kotlin:kotlin-android-extensions:${Versions.Plugins.KOTLIN}"
     }
 }

@@ -64,7 +64,7 @@
         android:id="@+id/redditPostTitle"
         android:textColor="@color/colorOnDarkBackground"
         android:gravity="center|start"
-        android:maxLines="4"
+        android:maxLines="5"
         android:ellipsize="end"
         tools:text="Reddit post title"
         app:layout_constraintTop_toBottomOf="@+id/redditPostAuthor"

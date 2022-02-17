@@ -2,6 +2,7 @@ package com.ruiderson.deviget_android_test.di
 
 import android.content.Context
 import androidx.room.Room
+import com.ruiderson.deviget_android_test.image_viewer.domain.ImageViewerNavigation
 import com.ruiderson.deviget_android_test.shared.domain.SharedRedditPostViewModel
 import com.ruiderson.deviget_android_test.top_posts.adapter.RedditPostAdapter
 import com.ruiderson.deviget_android_test.top_posts.adapter.RedditPostAdapterImpl
@@ -83,5 +84,9 @@ val appModule = Kodein.Module("appModule") {
 
     bind() from singleton {
         SharedRedditPostViewModel()
+    }
+
+    bind() from provider {
+        ImageViewerNavigation()
     }
 }

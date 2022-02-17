@@ -22,5 +22,8 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".image_viewer.ImageViewerActivity"
+            android:theme="@style/Theme.AppTheme.NoActionBar"/>
     </application>
 </manifest>

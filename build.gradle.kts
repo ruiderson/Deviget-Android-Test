@@ -6,7 +6,8 @@ buildscript {
     dependencies {
         classpath(Dependencies.Plugins.ANDROID)
         classpath(Dependencies.Plugins.KOTLIN)
-        classpath(Dependencies.Plugins.KOTLIN_SERIALIZATION)
+        classpath(Dependencies.Plugins.SERIALIZATION)
+        classpath(Dependencies.Plugins.EXTENSIONS)
     }
 }
 
