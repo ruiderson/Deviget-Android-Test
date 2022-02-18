@@ -6,10 +6,10 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import com.ruiderson.deviget_android_test.image_viewer.domain.ImageViewerNavigation
 import com.ruiderson.deviget_android_test.shared.models.RedditPost
 import org.junit.Assert.assertTrue
@@ -17,14 +17,17 @@ import com.ruiderson.deviget_android_test.R
 import com.ruiderson.deviget_android_test.base.activity.PermissionRequest
 import com.ruiderson.deviget_android_test.base.activity.PermissionRequestFactory
 import com.ruiderson.deviget_android_test.base.di.coreModule
+import com.ruiderson.deviget_android_test.base.utils.ImageTool
+import com.ruiderson.deviget_android_test.base.utils.ToastUtil
 import com.ruiderson.deviget_android_test.di.appModule
 import com.ruiderson.deviget_android_test.image_viewer.domain.ImageViewerViewModel
 import com.ruiderson.deviget_android_test.test.di.getKodeinInstance
 import com.ruiderson.deviget_android_test.test.di.mockKodeinModule
-import io.mockk.every
-import io.mockk.mockk
 import io.mockk.spyk
+import io.mockk.mockk
+import io.mockk.every
 import io.mockk.verify
+import io.mockk.mockkObject
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.provider
 
@@ -35,11 +38,17 @@ class ImageViewerActivityRobot(
     private val kodein = getKodeinInstance()
 
     private val permissionRequest = spyk(PermissionRequest("", mockk())) {
-        every { request(any(), any(), any()) } answers { }
+        every { request(any(), any(), any()) } answers {
+            thirdArg<() -> Unit>().invoke()
+        }
     }
 
     private val permissionRequestFactory = spyk(PermissionRequestFactory()) {
         every { create(any(), any()) } returns permissionRequest
+    }
+
+    private val imageTool: ImageTool = mockk {
+        every { saveBitmap(any()) } returns true
     }
 
     private val mockedRedditPost = RedditPost(
@@ -53,6 +62,11 @@ class ImageViewerActivityRobot(
         isUnread = false
     )
 
+    private fun mockToast() {
+        mockkObject(ToastUtil)
+        every { ToastUtil.show(any(), any(), any()) } answers { }
+    }
+
     private val viewModel = spyk(ImageViewerViewModel(kodein))
 
     private lateinit var activity: ImageViewerActivity
@@ -63,9 +77,21 @@ class ImageViewerActivityRobot(
     }
 
     private fun setup() {
+        mockToast()
         mockKodeinModule(appModule, coreModule) {
             bind(overrides = true) from provider { permissionRequestFactory }
+            bind(overrides = true) from provider { imageTool }
             bind(overrides = true) from provider { viewModel }
+        }
+    }
+
+    inner class Arrange(block: Arrange.() -> Unit) {
+        init {
+            block.invoke(this)
+        }
+
+        fun setupFailedSaveBitmap() {
+            every { imageTool.saveBitmap(any()) } returns false
         }
     }
 
@@ -115,6 +141,18 @@ class ImageViewerActivityRobot(
 
         fun verifyPermissionRequestIsCalled() {
             verify { permissionRequest.request(any(), any(), any()) }
+        }
+
+        fun verifyImageToolIsCalled() {
+            verify { imageTool.saveBitmap(any()) }
+        }
+
+        fun verifySuccessToastIsDisplayed() {
+            verify { ToastUtil.show(any(), R.string.image_saved_success) }
+        }
+
+        fun verifyFailedToastIsDisplayed() {
+            verify { ToastUtil.show(any(), R.string.image_saved_fail) }
         }
     }
 }

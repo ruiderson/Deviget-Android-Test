@@ -45,6 +45,46 @@ class ImageViewerActivityTest {
         }
     }
 
+    @Test
+    fun whenSaveImageClicked_verifyImageToolIsCalled() = runImageViewerActivityTest {
+        Act {
+            launchActivity()
+            performSaveImageClick()
+        }
+
+        Assert {
+            verifyImageToolIsCalled()
+        }
+    }
+
+    @Test
+    fun whenSaveImageClicked_andIsSuccess_verifySuccessToastIsDisplayed() = runImageViewerActivityTest {
+        Act {
+            launchActivity()
+            performSaveImageClick()
+        }
+
+        Assert {
+            verifySuccessToastIsDisplayed()
+        }
+    }
+
+    @Test
+    fun whenSaveImageClicked_andIsFailed_verifyFailedToastIsDisplayed() = runImageViewerActivityTest {
+        Arrange {
+            setupFailedSaveBitmap()
+        }
+
+        Act {
+            launchActivity()
+            performSaveImageClick()
+        }
+
+        Assert {
+            verifyFailedToastIsDisplayed()
+        }
+    }
+
     private fun runImageViewerActivityTest(
         block: ImageViewerActivityRobot.() -> Unit
     ) = runBlockingTest {

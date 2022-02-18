@@ -6,5 +6,5 @@
 
     <string name="save_image">Save</string>
     <string name="image_saved_success">Image saved in the picture gallery</string>
-    <string name="image_saved_error">Failed to save image</string>
+    <string name="image_saved_fail">Failed to save image</string>
 </resources>
