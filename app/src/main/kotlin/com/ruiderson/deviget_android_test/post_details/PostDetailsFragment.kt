@@ -12,6 +12,7 @@ import com.ruiderson.deviget_android_test.base.extensions.show
 import com.ruiderson.deviget_android_test.base.extensions.hide
 import com.ruiderson.deviget_android_test.base.extensions.uiLifecycleScope
 import com.ruiderson.deviget_android_test.databinding.FragmentPostDetailsBinding
+import com.ruiderson.deviget_android_test.image_viewer.domain.ImageViewerNavigation
 import com.ruiderson.deviget_android_test.shared.domain.SharedRedditPostState
 import com.ruiderson.deviget_android_test.shared.domain.SharedRedditPostViewModel
 import com.ruiderson.deviget_android_test.shared.models.RedditPost
@@ -19,12 +20,15 @@ import kotlinx.coroutines.flow.collect
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
+import org.kodein.di.generic.instance
 
 internal class PostDetailsFragment : Fragment(R.layout.fragment_post_details),
     KodeinAware
 {
 
     override val kodein: Kodein by kodein()
+
+    private val imageViewerNavigation: ImageViewerNavigation by instance()
 
     private val sharedViewModel: SharedRedditPostViewModel by viewModels()
 
@@ -63,10 +67,14 @@ internal class PostDetailsFragment : Fragment(R.layout.fragment_post_details),
                     .load(redditPost.thumbnail)
                     .centerCrop()
                     .into(this)
-                postDetailsImageView.show()
+                show()
+                setOnClickListener {
+                    imageViewerNavigation.navigateToImageViewer(this.context, redditPost)
+                }
             }
         } else {
             postDetailsImageView.hide()
+            postDetailsImageView.setOnClickListener { }
         }
     }
 

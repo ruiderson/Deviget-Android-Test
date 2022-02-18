@@ -16,6 +16,7 @@ android {
 }
 
 dependencies {
+    implementation(Dependencies.Androidx.Android.APPCOMPAT)
     implementation(Dependencies.Androidx.Android.FRAGMENT)
     implementation(Dependencies.Androidx.Android.LIFE_CYCLE)
     implementation(Dependencies.Androidx.Android.VIEWMODEL)

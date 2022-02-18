@@ -5,6 +5,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     kotlin("plugin.serialization")
+    id("kotlin-parcelize")
     kotlin("kapt")
 }
 
@@ -22,7 +23,9 @@ dependencies {
     kapt(Dependencies.Androidx.Android.ROOM_COMPILER)
     kapt(Dependencies.Glide.GLIDE_COMPILER)
 
+    implementation(Dependencies.Androidx.Android.ACTIVITY)
     implementation(Dependencies.Androidx.Android.APPCOMPAT)
+    implementation(Dependencies.Androidx.Android.FRAGMENT)
     implementation(Dependencies.Androidx.Android.PAGING)
     implementation(Dependencies.Androidx.Android.ROOM_KTX)
     implementation(Dependencies.Androidx.Android.ROOM_RUNTIME)

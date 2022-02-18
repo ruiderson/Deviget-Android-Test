@@ -148,6 +148,22 @@ class PostDetailsFragmentTest {
         }
     }
 
+    @Test
+    fun whenImageViewClicked_verifyNavigateToImageViewerIsCalled() = runPostDetailsFragmentTest {
+        Arrange {
+            setupOnShowPostDetailsState()
+        }
+
+        Act {
+            launchFragment()
+            performImageViewClick()
+        }
+
+        Assert {
+            verifyNavigateToImageViewerIsCalled()
+        }
+    }
+
     private fun runPostDetailsFragmentTest(
         block: PostDetailsFragmentRobot.() -> Unit
     ) = runBlockingTest {
