@@ -33,6 +33,18 @@ class ImageViewerActivityTest {
         }
     }
 
+    @Test
+    fun whenSaveImageClicked_verifyPermissionRequestIsCalled() = runImageViewerActivityTest {
+        Act {
+            launchActivity()
+            performSaveImageClick()
+        }
+
+        Assert {
+            verifyPermissionRequestIsCalled()
+        }
+    }
+
     private fun runImageViewerActivityTest(
         block: ImageViewerActivityRobot.() -> Unit
     ) = runBlockingTest {

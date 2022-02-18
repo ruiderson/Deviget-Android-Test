@@ -2,22 +2,23 @@ internal object Versions {
 
     object Androidx {
         object Android {
-            const val CORE = "1.7.0"
+            const val ACTIVITY = "1.4.0"
             const val APPCOMPAT = "1.4.1"
+            const val CORE = "1.7.0"
+            const val FRAGMENT = "1.4.1"
+            const val LIFE_CYCLE = "2.4.0"
+            const val PAGING = "3.1.0"
+            const val ROOM = "2.4.1"
             const val SLIDING_PANEL_LAYOUT = "1.2.0"
             const val SWIPE_REFRESH_LAYOUT = "1.1.0"
-            const val PAGING = "3.1.0"
-            const val LIFE_CYCLE = "2.4.0"
-            const val FRAGMENT = "1.4.1"
-            const val ROOM = "2.4.1"
         }
 
         object AndroidTest {
             const val CORE = "1.4.0"
-            const val JUNIT = "1.1.3"
-            const val RECYCLER_VIEW = "1.2.1"
             const val ESPRESSO = "3.4.0"
             const val FRAGMENT = "1.4.1"
+            const val JUNIT = "1.1.3"
+            const val RECYCLER_VIEW = "1.2.1"
         }
     }
 
@@ -38,8 +39,8 @@ internal object Versions {
     }
 
     object Kotlin {
-        const val SERIALIZATION = "1.3.2"
         const val COROUTINES = "1.5.2"
+        const val SERIALIZATION = "1.3.2"
     }
 
     object Ktor {

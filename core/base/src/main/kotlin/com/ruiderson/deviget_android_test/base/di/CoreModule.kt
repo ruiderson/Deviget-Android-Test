@@ -1,5 +1,6 @@
 package com.ruiderson.deviget_android_test.base.di
 
+import com.ruiderson.deviget_android_test.base.activity.PermissionRequestFactory
 import com.ruiderson.deviget_android_test.base.utils.IntentFactory
 import com.ruiderson.deviget_android_test.base.utils.TimestampConverter
 import org.kodein.di.Kodein
@@ -19,5 +20,9 @@ val coreModule = Kodein.Module("coreModule") {
         IntentFactory(
             instance()
         )
+    }
+
+    bind() from provider {
+        PermissionRequestFactory()
     }
 }

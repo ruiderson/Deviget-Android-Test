@@ -19,6 +19,7 @@
             tools:title="Post title"
             app:navigationIcon="@drawable/ic_arrow_back"
             app:navigationContentDescription="@string/navigation_back_description"
+            app:menu="@menu/image_viewer_menu"
             app:titleTextColor="@color/colorOnPrimary"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"

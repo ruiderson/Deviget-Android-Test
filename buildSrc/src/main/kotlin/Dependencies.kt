@@ -2,6 +2,7 @@ object Dependencies {
 
     object Androidx {
         object Android {
+            const val ACTIVITY = "androidx.activity:activity-ktx:${Versions.Androidx.Android.ACTIVITY}"
             const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.Androidx.Android.APPCOMPAT}"
             const val CORE_KTX = "androidx.core:core-ktx:${Versions.Androidx.Android.CORE}"
             const val FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.Androidx.Android.FRAGMENT}"
