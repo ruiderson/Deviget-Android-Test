@@ -1,0 +1,10 @@
+<resources>
+    <string name="dismiss_all">Dismiss All</string>
+    <string name="reddit_posts">Reddit Posts</string>
+    <string name="dismiss">Dismiss Post</string>
+    <string name="comments">comments</string>
+
+    <string name="save_image">Save</string>
+    <string name="image_saved_success">Image saved in the picture gallery</string>
+    <string name="image_saved_fail">Failed to save image</string>
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="navigation_back_description">Navigate back</string>
+    <string name="default_permission_request_denial">Permission denied</string>
+
+    <string name="just_now">just now</string>
+    <string name="one_minute_ago">1 minute ago</string>
+    <string name="minutes_ago">minutes ago</string>
+    <string name="one_hour_ago">1 hour ago</string>
+    <string name="hours_ago">hours ago</string>
+    <string name="yesterday">yesterday</string>
+    <string name="days_ago">days_ago</string>
+</resources>

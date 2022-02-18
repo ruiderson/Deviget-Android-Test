@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/postDetailsRootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_large"
+    android:background="@color/colorLightBackground">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/postDetailsAuthor"
+        android:textSize="@dimen/h5_text_size"
+        android:textColor="@color/colorOnLightBackground"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="Author"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/postDetailsImageView"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_marginTop="@dimen/margin_extra_large"
+        app:layout_constraintTop_toBottomOf="@+id/postDetailsAuthor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="@dimen/reddit_post_details_image_size"
+        android:layout_height="@dimen/reddit_post_details_image_size"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/postDetailsTitle"
+        android:textSize="@dimen/body2_text_size"
+        android:textColor="@color/colorOnLightBackground"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="Title"
+        android:layout_marginTop="@dimen/margin_extra_large"
+        app:layout_constraintTop_toBottomOf="@+id/postDetailsImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

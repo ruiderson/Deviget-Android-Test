@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.slidingpanelayout.widget.SlidingPaneLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainSlidingPane"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/topPostsFragmentView"
+        android:name="com.ruiderson.deviget_android_test.top_posts.TopPostsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/postDetailsFragmentView"
+        android:name="com.ruiderson.deviget_android_test.post_details.PostDetailsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</androidx.slidingpanelayout.widget.SlidingPaneLayout>
